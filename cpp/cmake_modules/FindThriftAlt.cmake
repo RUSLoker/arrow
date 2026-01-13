@@ -179,6 +179,7 @@ if(ThriftAlt_FOUND)
   # Workaround: thrift.pc doesn't have Boost dependency.
   if(TARGET Boost::headers)
     target_link_libraries(thrift::thrift INTERFACE Boost::headers)
+    message(FATAL_ERROR "BOOST HEADERS!!!")
   else ()
     message(FATAL_ERROR "NO BOOST HEADERS!!!")
   endif()
