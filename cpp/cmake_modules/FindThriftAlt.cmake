@@ -28,10 +28,7 @@
 #  thrift::thrift, a library target to use Thrift
 #  thrift::compiler, a executable target to use Thrift compiler
 
-message(STATUS "THRIFTALT!!!!")
-
 if(ThriftAlt_FOUND)
-  message(STATUS "THRIFTALT FUCKED!!!!")
   return()
 endif()
 
@@ -182,9 +179,6 @@ if(ThriftAlt_FOUND)
   # Workaround: thrift.pc doesn't have Boost dependency.
   if(TARGET Boost::headers)
     target_link_libraries(thrift::thrift INTERFACE Boost::headers)
-    message(FATAL_ERROR "BOOST HEADERS!!!")
-  else ()
-    message(FATAL_ERROR "NO BOOST HEADERS!!!")
   endif()
 
   if(Thrift_COMPILER_FOUND)
