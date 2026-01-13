@@ -28,7 +28,10 @@
 #  thrift::thrift, a library target to use Thrift
 #  thrift::compiler, a executable target to use Thrift compiler
 
+message(STATUS "THRIFTALT!!!!")
+
 if(ThriftAlt_FOUND)
+  message(STATUS "THRIFTALT FUCKED!!!!")
   return()
 endif()
 
