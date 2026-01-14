@@ -1814,9 +1814,11 @@ function(build_thrift)
                              INTERFACE $<BUILD_LOCAL_INTERFACE:${thrift_BINARY_DIR}>
                                        $<BUILD_LOCAL_INTERFACE:${thrift_SOURCE_DIR}/lib/cpp/src>
   )
-  if(BOOST_VENDORED OR Boost_FOUND)
+  if(BOOST_VENDORED)
     target_link_libraries(thrift PUBLIC $<BUILD_LOCAL_INTERFACE:Boost::headers>)
     target_link_libraries(thrift PRIVATE $<BUILD_LOCAL_INTERFACE:arrow::Boost::locale>)
+  elseif (Boost_FOUND)
+    target_link_libraries(thrift PUBLIC $<BUILD_LOCAL_INTERFACE:Boost::headers>)
   endif()
 
   add_library(thrift::thrift INTERFACE IMPORTED)
